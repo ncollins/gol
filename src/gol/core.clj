@@ -26,7 +26,7 @@
   [x y board]
   (let [height (count board)
         width (count (first board))]
-    (and (>= x 0) (>= y 0) (< x width) (< y height))))
+    (spec/valid? ::coords x y)))
 
 (defn neighbors
   ""
