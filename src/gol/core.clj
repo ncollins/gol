@@ -30,10 +30,14 @@
     (spec/valid? ::coords [x y])))
 
 (defn neighbors
-  ""
+  "Return the valid coordinates of neighbors."
   [x y]
-  []
-  )
+  (let [translations [[-1 -1] [0 -1] [1 1]
+                      [-1 0] [1 0]     ; don't include the node itself at [0 0]
+                      [-1 1] [0 1] [1 -1]]]
+    (->> translations
+         (map (fn [[x' y']] [(+ x x') (+ y y')]))
+         (filter #(spec/valid? ::coords %)))))
 
 (comment
 
