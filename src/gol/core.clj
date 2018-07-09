@@ -21,12 +21,13 @@
 (spec/fdef on-board?
   :args (spec/cat :coords ::coords :board ::board)
   :ret boolean?)
+
 (defn on-board?
-  ""
+  "Checks if the pair `x` and `y` are on the `board`."
   [x y board]
   (let [height (count board)
         width (count (first board))]
-    (spec/valid? ::coords x y)))
+    (spec/valid? ::coords [x y])))
 
 (defn neighbors
   ""
