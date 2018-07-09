@@ -13,7 +13,7 @@
                   [0 0 0 0 0 0 0 0 0 0]
                   [0 0 0 0 0 0 0 0 0 0]])
 
-(spec/def ::coords (spec/cat :x (set (range 0 10)) :y (set (range 0 10))))
+(spec/def ::coords (spec/cat :x (spec/int-in 0 10) :y (spec/int-in 0 10)))
 (spec/def ::cell #{0 1})
 (spec/def ::row (spec/coll-of ::cell :kind vector? :count 10))
 (spec/def ::board (spec/coll-of ::row :count 10))
