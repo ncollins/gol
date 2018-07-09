@@ -36,8 +36,9 @@
 
 (comment
 
-  (set! spec/*explain-out* expound/printer)
-  ;; Put your cursor on start of the line (after the above sexp) and type `SPC m e e`
+  (set! spec/*explain-out* (expound/custom-printer {:show-valid-values? true
+                                                    :print-specs? false
+                                                    :theme :figwheel-theme}))
 
 
   ;; Any live cell with two or three live neighbors lives on to the next generation.
